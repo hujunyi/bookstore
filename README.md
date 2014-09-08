@@ -1,1 +1,1 @@
-I am following the book "Agile Development with Rails" by Sam Ruby, David Thomas, David Heinemeier Hansson to build up the Rails app.
+I am following the book "Agile Development with Rails"(http://www.amazon.com/Agile-Development-Rails-Pragmatic-Programmers/dp/1934356549) to build up a Rails app.
