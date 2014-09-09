@@ -70,6 +70,7 @@ class LineItemsController < ApplicationController
     @line_item.quantity -= 1
     @line_item.save
     @line_item.destroy if @line_item.quantity <= 0
+    @cart = current_cart
     respond_to do |format|
       format.html { redirect_to root_path}
       format.json { head :no_content}
