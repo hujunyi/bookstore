@@ -59,4 +59,10 @@ class ProductTest < ActiveSupport::TestCase
      assert !product.save
      assert_equal "has already been taken",product.errors[:title].join(";")
    end
+
+
+   test "product is vald with a unique title" do
+     product = Product.new(title: "#{products(:ruby).title}_unique", description:"yyy",price:1,image_url:"fake.gif")
+     assert product.save
+   end
 end

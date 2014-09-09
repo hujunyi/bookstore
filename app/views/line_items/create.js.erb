@@ -1,0 +1,4 @@
+$('#cart').show();
+$('#cart').html(" <%= escape_javascript(render(@cart))%> ");
+$('#current_item').animate({'color': "red"}).animate({'color':"white"}) 
+

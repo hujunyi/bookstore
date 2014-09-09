@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :carts
 
-  root 'store#index', as: 'store'
+  root 'store#index'
 
   resources :products
 
