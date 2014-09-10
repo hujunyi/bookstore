@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:who_bought,:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -19,6 +19,16 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+  end
+
+
+  def who_bought
+
+    respond_to do |format|
+      format.atom
+      format.xml { render xml: @product }
+    end
+
   end
 
   # POST /products

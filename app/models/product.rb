@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   validates :title,uniqueness: true
   validates :image_url, format: { with: %r{\.(jpg|png|gif)$}i, message:'must be a URL for GIF, JPG or PNG image.',multiline:true}
   has_many :line_items
+  has_many :orders, through: :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
 
