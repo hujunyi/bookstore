@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  <% unless @ship %>
+
 
   <div class="field">
     <%= f.label :name %><br>
@@ -27,6 +29,13 @@
     <%= f.label :pay_type %><br>
     <%= f.select :pay_type, Order::PAYMENT_TYPES,prompt: 'Select A Payment Method' %>
   </div>
+  <% end %>
+  <% if @ship %>
+    <div class="field">
+      <%= f.label :ship_date %>
+      <%= f.date_select :ship_date%>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :carts
 
   root 'store#index'
+  get '/orders/ship/:id', to: 'orders#ship', as: :ship
   match '/decrement/:id', to: 'line_items#decrement', via: [:post], as: :decrement
 
   resources :products do
