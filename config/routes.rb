@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+  get 'admin/index',to: 'admin#index'
+  controller :sessions do
+    get 'login', to: :new
+    match 'login', to: :create, via: [:post]
+    delete 'logout', to: :destroy, via: [:delete]
+  end
+
+  resources :users
+
   resources :orders
 
   resources :line_items
 
   resources :carts
+
+  resources :sessions
 
   root 'store#index'
   get '/orders/ship/:id', to: 'orders#ship', as: :ship
