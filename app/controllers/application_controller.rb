@@ -16,10 +16,11 @@ class ApplicationController < ActionController::Base
     cart
   end
   def authorize
-    unless User.find_by_id(session[:user_id])
-      redirect_to login_url, :notice => "Please log in"
-    end 
+    if User.count > 0
+      unless User.find_by_id(session[:user_id])
+        redirect_to login_url, :notice => "Please log in"
+      end 
+    end
   end
-
 
 end
