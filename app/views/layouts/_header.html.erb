@@ -7,15 +7,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project name</a>
+      <%= link_to "Online Bookstore", root_path, class: "navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Help</a></li>
+        <% if session[:user_id] %>
+          <li><%= link_to 'Orders', orders_path %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+          <li><%= link_to "Carts", carts_path %></li>
+          <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign in',new_session_path %></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In<span class="caret"></span></a>
+          <div class="dropdown-menu" role="menu">
+            <%= form_tag sessions_path, class: "form-signin", role: "form" do %>
+              <div class="form-group">
+                <%= label_tag :Email %>
+                <%= text_field_tag :email, params[:email]%>
+              </div>
+              <div class="form-group">
+                <%= label_tag :Password %>
+                <%= password_field_tag :password%>
+              </div>
+              <%= submit_tag "Log In", class: "btn btn-primary btn-block"%>
+          <% end %>
+          </div>
+          </li>
+        <% end %>      
       </ul>
+                    
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Search...">
       </form>

@@ -11,30 +11,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <% if session[:user_id] %>
-              <li><%= link_to 'Orders', orders_path %></li>
-              <li><%= link_to 'Products', products_path %></li>
-              <li><%= link_to 'Users', users_path %></li>
-              <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'Sign in',new_session_path %></li>
-            <% end %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Carts", carts_path %></li>
-                      
-          </ul>
-          <div class="nav nav-sidebar">
           <% if @cart %>
-            <%= hidden_div_if(@cart.line_items.empty?,id: 'cart') { render @cart} %>
+            <label>Your Shopping Cart </label>
+            <div class="nav nav-sidebar">
+              <%= hidden_div_if(@cart.line_items.empty?,id: 'cart') { render @cart} %>
+            </div>
           <% end %>            
         </div>
-        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <div class="row placeholders">
             <%= yield %>
-          </div>
         </div>
       </div>
     </div>

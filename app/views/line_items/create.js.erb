@@ -1,5 +1,6 @@
 $('#cart').show();
 $('#notice').hide();
 $('#cart').html(" <%= escape_javascript(render(@cart))%> ");
-$('#current_item').animate({'color': "red"}).animate({'color':"white"}) 
+var color = $('#current_item').css('color'); 
+$('#current_item').animate({'color': "red"}).animate({'color':color});
 

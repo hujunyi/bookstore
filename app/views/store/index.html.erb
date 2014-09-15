@@ -3,22 +3,33 @@
     <%= notice %>
   </div>
 <% end %>
-Your Pragmatic Catalog 
-<% if session[:counter] >5 %>
-  You visit the home page <%= pluralize(session[:counter],'time') %>
-<% end %>
-
-<% @products.each do |product| %>
-  <div class="entry">
-    <%= form_tag line_items_path(product_id: product),remote: true do %>
-      <%= image_submit_tag product.image_url %>
-    <% end %>
-  <h3><%= product.title %></h3> 
-  <%=sanitize product.description %> 
-  <div class="price_line">
-    <span class="price"><%= number_to_currency(product.price) %></span> 
-    <%= button_to 'Add to Cart', line_items_path(product_id: product),remote: true %>
-  </div>
+<table class="table">
+  <th></td>
+  <th>Title</td>
+  <th>Details</td>
+  <th>Price</td>
+  <th></td>
+  <% @products.each do |product| %>
+    <tr>
+      <td>
+        <%= form_tag line_items_path(product_id: product),remote: true do %>
+          <%= image_submit_tag product.image_url %>
+        <% end %>    
+      </td>
+      <td>
+        <%= product.title %>
+      </td>
+      <td>
+        <%=sanitize product.description %>
+      </td>
+      <td>
+        <label>
+          <%= number_to_currency(product.price) %>
+        </label>
+      </td>
+      <td>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product),remote: true,class: "btn btn-primary" %>
+      </td>
+    </tr>
+  <% end %>
 </div>
-<% end %>
-
