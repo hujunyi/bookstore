@@ -1,0 +1,28 @@
+
+<!--
+<%= form_tag sessions_path, class: "form-signin", role: "form" do %>
+  <div class="form-group">
+    <%= label_tag :Email %>
+    <%= text_field_tag :email, params[:email]%>
+  </div>
+  <div class="form-group">
+    <%= label_tag :Password %>
+    <%= password_field_tag :password%>
+  </div>
+  <%= submit_tag "Log In", class: "btn btn-primary btn-block"%>
+<% end %>
+-->
+
+<%= form_tag sessions_path,  class: "form-signin" do %>
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <div class="form-group">
+    <%= label_tag :Email%>
+    <%= text_field_tag :email, params[:email], class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= label_tag :Password%>
+    <%= text_field_tag :password, params[:email], class: "form-control"%>
+  </div>
+  <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+<% end %>
+

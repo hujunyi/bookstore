@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/index',to: 'admin#index'
   controller :sessions do
+    get 'login', to: :new
     match 'login', to: :create, via: [:post]
     delete 'logout', to: :destroy, via: [:delete]
   end
