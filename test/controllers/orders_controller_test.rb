@@ -21,7 +21,7 @@ class OrdersControllerTest < ActionController::TestCase
   test "requires item in a cart" do
     get :new
     assert_redirected_to root_path
-    assert_equal "Your cart is empty.", flash[:notice]
+    assert_equal "Your cart is empty.", flash[:warning]
   end
 
   test "should create order" do

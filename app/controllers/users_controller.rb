@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to users_path, notice: "User #{@user.email} was successfully created." }
+        format.html { redirect_to users_path, success: "User #{@user.email} was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User #{@user.email} was successfully updated.' }
+        format.html { redirect_to users_path, success: 'User #{@user.email} was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -58,9 +58,9 @@ class UsersController < ApplicationController
   def destroy
     begin 
       @user.destroy 
-      flash[:notice] = 'User was successfully destroyed.' 
+      flash[:info] = 'User was successfully destroyed.' 
     rescue Exception => e
-      flash[:notice] = e.message
+      flash[:danger] = e.message
     end
     respond_to do |format|
       format.html { redirect_to users_url}

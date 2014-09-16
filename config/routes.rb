@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :line_items
 
-  resources :carts
+  resources :carts, only: [:destroy]
 
   resources :sessions
 

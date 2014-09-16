@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if current_cart.line_items.empty?
-      redirect_to root_path, notice: "Your cart is empty."
+      redirect_to root_path, warning: "Your cart is empty."
       return
     end
     @order = Order.new
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
         current_cart.destroy
         session[:cart_id] = nil
         Notifier.order_received(@order).deliver
-        format.html { redirect_to root_path, notice: 'Thank you for your order!' }
+        format.html { redirect_to root_path, success: 'Thank you for your order!' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, success: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, info: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,5 @@
 $('#cart').show();
-$('#notice').hide();
+$('.alert').hide();
 $('#cart').html(" <%= escape_javascript(render(@cart))%> ");
 var color = $('#current_item').css('color'); 
 $('#current_item').animate({'color': "red"}).animate({'color':color});
