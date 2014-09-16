@@ -26,7 +26,6 @@
             <a href="https://github.com/hujunyi/bookstore">Source Code in Github</a>
           </div>
           <% if @cart %>
-            <label>Your Shopping Cart </label>
             <div class="nav nav-sidebar">
               <%= hidden_div_if(@cart.line_items.empty?,id: 'cart') { render @cart} %>
             </div>
