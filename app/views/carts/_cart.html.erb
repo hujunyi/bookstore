@@ -1,4 +1,4 @@
-<label>Your Shopping Cart </label>
+<h4 class="cart-title">Your Shopping Cart </h4>
 <table class="table table-condensed">
   <tbody>
   <tr>
@@ -11,8 +11,11 @@
       <td colspan='2'>Total</td>
       <td><%= number_to_currency(cart.total_price) %></td>
     </tr>
+    <tr>
+      <td colspan="3">
+        <%= link_to "Checkout", new_order_path, :method=>:get, class: "btn btn-primary btn-sm" %>
+        <%= link_to 'Empty cart', cart, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-sm btn-warning" %>
+      </td>
+    </tr>
   </tbody>
 </table>
-<%= button_to "Checkout", new_order_path, :method=>:get, class: "btn btn-primary" %>
-<br />
-<%= button_to 'Empty cart', cart, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-warning" %>
