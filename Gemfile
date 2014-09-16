@@ -39,6 +39,6 @@ gem 'unicorn',  group: :production
 # gem 'debugger', group: [:development, :test]
 
 gem 'will_paginate', '~> 3.0.5'
-
+gem 'carrierwave'
 gem 'mysql'
-
+gem 'mini_magick'

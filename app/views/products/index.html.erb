@@ -14,12 +14,12 @@
     <% @products.each do |product| %>
       <tr class="<%=cycle('list_line_odd', 'list_line_even') %>">
         <td>
-          <%= image_tag(product.image_url, :class => 'list_image') %>
+          <%= image_tag(product.avatar_url(:thumb).to_s, :class => 'list_image') %>
         </td>
         <td class="list_description">
           <dl>
             <dt><%= product.title %></dt>
-            <dd><%= truncate(strip_tags(product.description),:length => 80) %></dd>
+            <dd><%= truncate(strip_tags(product.description),length: 80) %></dd>
           </dl> 
         </td>
         <td class="list_actions">

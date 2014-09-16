@@ -17,3 +17,6 @@
 
 # Ignore all public files
 /public/*
+
+# Ignore all uploaded files
+app/uploaders/*
