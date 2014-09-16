@@ -11,25 +11,27 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+          <% if @cart %>
+            <div class="nav nav-sidebar">
+              <%= hidden_div_if(@cart.line_items.empty?,id: 'cart') { render @cart} %>
+            </div>
+          <% end %> 
+          <hr>
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
+            <p>This is a demo web application built on Ruby on Rails and Twitter Bootstrap. It allows customers to place orders and admin to manage the product</p>
             <p>
             You will get an e-mail confirmation after placing an order.
             </p>
             <p>
             To login as an admin:<br /> 
-            <label>username:</label> <br />
-            admin@example.com<br />
-            <label>password:</label><br />
-            123456
+            username: <br />
+            <label>admin@example.com</label><br />
+            password:<br />
+            <label>123456</label>
             </p>
             <a href="https://github.com/hujunyi/bookstore">Source Code in Github</a>
-          </div>
-          <% if @cart %>
-            <div class="nav nav-sidebar">
-              <%= hidden_div_if(@cart.line_items.empty?,id: 'cart') { render @cart} %>
-            </div>
-          <% end %>            
+          </div>           
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <% flash.each do |name, msg| -%>
