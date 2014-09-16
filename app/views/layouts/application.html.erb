@@ -11,6 +11,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>
+            You will get an e-mail confirmation after placing an order.
+            </p>
+            <p>
+            To login as an admin:<br /> 
+            <label>username: joey</label>
+            <label>password: 12345</label>
+            </p>
+            <a href="https://github.com/hujunyi/bookstore">Source Code in Github</a>
+          </div>
           <% if @cart %>
             <label>Your Shopping Cart </label>
             <div class="nav nav-sidebar">
@@ -19,6 +31,10 @@
           <% end %>            
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert #{name}-danger" %>
+          <% end -%>
+          <br />
             <%= yield %>
         </div>
       </div>
