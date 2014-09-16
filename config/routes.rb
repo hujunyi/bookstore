@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   root 'store#index'
   get '/orders/ship/:id', to: 'orders#ship', as: :ship
   match '/decrement/:id', to: 'line_items#decrement', via: [:post], as: :decrement
+  match '/deleteall', to: 'carts#deleteAll', via: [:post], as: :delete_carts
 
   resources :products do
     get :who_bought, :on => :member

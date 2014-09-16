@@ -2,7 +2,12 @@
 
 
 <div class="cart_title">Your Cart</div>
-<table>
+<table class="table">
+  <tr>
+    <th>Item</th>
+    <th>Qty</th>
+    <th>Price</th>
+  </tr>
   <%= render (@cart.line_items) %>
     <tr class="total_line">
       <td colspan='2'>Total</td>
@@ -11,7 +16,7 @@
 </table>
 
 
-<%= button_to 'Empty cart', @cart, method: :delete, data: {confirm: "Are you sure"} %>
+<%= button_to 'Empty cart', @cart, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-warning" %><br />
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>

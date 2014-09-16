@@ -63,6 +63,11 @@ class CartsController < ApplicationController
     end
   end
 
+  def deleteAll
+    Cart.delete_all
+    redirect_to carts_path, alert: "All carts have been deleted."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
@@ -70,7 +75,7 @@ class CartsController < ApplicationController
         @cart = Cart.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         logger.error "Attempt to access invalid cart #{params[:id]}"
-        redirect_to root_url, notice: "Invalid cart"
+        redirect_to root_path, notice: "Invalid cart"
       end
     end
 
