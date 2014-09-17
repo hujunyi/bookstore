@@ -11,6 +11,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Contact', new_message_path %></li>
         <% if session[:user_id] %>
           <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'Orders', orders_path %></li>

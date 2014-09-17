@@ -22,4 +22,10 @@ class Notifier < ActionMailer::Base
 
     mail to: order.email, subject: "Progmatic Store Shipping Confirmation"
   end
+
+  def message_sent(message)
+    @message = message
+
+    mail to: "hujunyi1990@gmail.com", subject: "left you a message"
+  end
 end

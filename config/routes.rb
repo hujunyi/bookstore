@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  resources :messages, only: [:new,:create]
+
   root 'store#index'
   get '/orders/ship/:id', to: 'orders#ship', as: :ship
   match '/decrement/:id', to: 'line_items#decrement', via: [:post], as: :decrement
