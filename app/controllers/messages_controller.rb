@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  skip_before_action :authorize
   def new
     @message = Message.new
   end

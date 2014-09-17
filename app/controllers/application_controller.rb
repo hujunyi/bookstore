@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   def authorize
     if User.count > 0
       unless User.find_by_id(session[:user_id])
-        redirect_to root_path, alert: "Please log in as an admin."
+        redirect_to root_path, warning: "Please log in as an admin."
       end 
     end
   end
