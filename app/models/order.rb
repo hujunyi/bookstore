@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
   end
 
   def shipping_confirm
-    Notifier.order_shipped(self).deliver 
+    Notifier.delay.order_shipped(self).deliver if self.ship_date
   end
 
 end

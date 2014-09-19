@@ -37,8 +37,8 @@ class OrdersController < ApplicationController
       if @order.save
         current_cart.destroy
         session[:cart_id] = nil
-        Notifier.order_received(@order).deliver
-        format.html { redirect_to root_path, success: 'Thank you for your order!' }
+        Notifier.delay.order_received(@order)
+        format.html { redirect_to root_path, success: 'Thank you for your order! You will receive a notifcation soon.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
