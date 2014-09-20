@@ -35,9 +35,7 @@ Product.create(:title => 'Web Design for Developers',
         and work through a web site redesign, taking a new design from concept
         all the way to implementation.
       </p>},
-  #:avatar =>   File.open(path+'/wd4d.jpg'),    
   :price => 42.95)
-# . . .
 Product.create(:title => 'Programming Ruby 1.9',
   :description =>
     %{<p>
@@ -45,9 +43,7 @@ Product.create(:title => 'Programming Ruby 1.9',
         out there. If you need to get working programs delivered fast,
         you should add Ruby to your toolbox.
       </p>},
-  #:avatar => File.open(path+'/ruby.jpg'),
   :price => 49.50)
-# . . .
 
 Product.create(:title => 'Rails Test Prescriptions',
   :description => 
@@ -59,5 +55,8 @@ Product.create(:title => 'Rails Test Prescriptions',
         procedures for Rails 2 and Rails 3, and introduces popular add-ons,
         including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
       </p>},
-  #:avatar => File.open(path+'/rtp.jpg'),
   :price => 43.75)
+User.delete_all
+User.create(:email => "admin@example.com",
+            :password => "123456"
+           )
